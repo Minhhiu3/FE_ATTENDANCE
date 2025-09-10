@@ -9,7 +9,7 @@ import { commonRoutes } from "./CommonRoute";
 
 
 const getRedirectPath = (user: { role: RoleEnum } | null) => {
-	if (!user) return "/";
+	if (!user) return "/login";
 	switch (user.role) {
 		case RoleEnum.SUPER_ADMIN:
 			return "/super-admin/users";
@@ -22,15 +22,12 @@ const getRedirectPath = (user: { role: RoleEnum } | null) => {
 	}
 };
 
+const user = JSON.parse(localStorage.getItem("user" ) || "null");
 const routes: RouteObject[] = [
     ...commonRoutes,
 	{
 		path: "/",
-		element:
-			// Chuyển hướng nếu đã đăng nhập, nếu không hiển thị HomePage (được bọc trong commonRoutes)
-			JSON.parse(localStorage.getItem("user") || "null") && (
-				<Navigate to={getRedirectPath(JSON.parse(localStorage.getItem("user") || "null"))} replace />
-			),
+		element: <Navigate to={getRedirectPath(user)} replace />,
 	},
    
     ...admin,

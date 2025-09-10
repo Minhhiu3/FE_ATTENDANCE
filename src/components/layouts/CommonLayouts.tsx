@@ -9,7 +9,7 @@ const CommonLayout = () => {
 			<main style={{ flex: 1, padding: "24px" }}>
 				<Outlet />
 			</main>
-			<Footer />
+			<Footer  />
 		</div>
 	);
 };

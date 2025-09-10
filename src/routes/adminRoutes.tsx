@@ -6,6 +6,7 @@ import ManagerSubjectPage from "../pages/admin/manager-subject/ManagerSubjectPag
 import ProtectedRoute from "./components/ProtectedRoute";
 import { RoleEnum } from "../common/types";
 import AdminLayouts from "../components/layouts/AdminLayouts";
+import MajorManager from "../pages/admin/manager-major/Major_Manager";
 
 export const routes: RouteObject[] = [
     {
@@ -19,7 +20,7 @@ export const routes: RouteObject[] = [
     {path: 'dashboard', element: <DashboardAdmin/>},
     {path: 'users', element: <ManagerUserPage/>},
     {path: 'classes', element: <ManagerClassesPage/>},
-    {path: 'majors', element: <div>Manage Majors</div>},
+    {path: 'majors', element: <MajorManager/>},
     {path: 'subjects', element: <ManagerSubjectPage/>},
         ]
     }

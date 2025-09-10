@@ -1,17 +1,18 @@
 import { useState } from "react";
+import { forgotPassword } from "../../common/services/authService";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch("/api/auth/forgot-password", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-    const data = await res.json();
-    alert(data.message);
+    try {
+      await forgotPassword({ email });
+      alert("Email khôi phục mật khẩu đã được gửi!");
+    } catch (error) {
+      console.error("Lỗi khi gửi email khôi phục mật khẩu:", error);
+      alert("Có lỗi xảy ra. Vui lòng thử lại.");
+    }
   };
 
   return (

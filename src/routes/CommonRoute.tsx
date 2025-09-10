@@ -8,7 +8,7 @@ export const commonRoutes: RouteObject[] = [
 	{
 		element: <CommonLayout />,
 		children: [
-			{ path: "/", element: <HomePage /> },
+			{ path: "/homepage", element: <HomePage /> },
 			{ path: "/privacy", element: <PrivacyPage /> },
 			{ path: "/terms", element: <TermsPage /> },
 

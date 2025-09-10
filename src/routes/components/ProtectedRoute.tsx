@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { RoleEnum } from "../../common/types";
 import { jwtDecode } from "jwt-decode";
+import type { JSX } from "react";
 
 interface ProtectedRouteProps {
 	children: JSX.Element;
